@@ -1,0 +1,27 @@
+{
+	"name": "xlucaspx/dojotech-api",
+	"description": "API para o projeto Dojotech desenvolvida com PHP",
+	"autoload": {
+		"psr-4": {
+			"Xlucaspx\\Dojotech\\Api\\": "src/"
+		}
+	},
+	"require": {
+		"nyholm/psr7": "^1.8",
+		"nyholm/psr7-server": "^1.1",
+		"psr/http-message": "^2.0",
+		"psr/http-server-handler": "^1.0",
+		"php-di/php-di": "^7.0",
+		"doctrine/orm": "^3.1",
+		"doctrine/dbal": "^4.0",
+		"doctrine/annotations": "^2.0",
+		"doctrine/migrations": "^3.7",
+		"symfony/cache": "^7.0"
+	},
+	"authors": [
+		{
+			"name": "Lucas da Paz",
+			"email": "xlucaspx@gmail.com"
+		}
+	]
+}
