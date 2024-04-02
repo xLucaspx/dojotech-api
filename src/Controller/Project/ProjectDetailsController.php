@@ -8,9 +8,10 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Entity\Project\ListProjectDto;
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
+use Xlucaspx\Dojotech\Api\Entity\Project\ProjectDetailsDto;
 use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
 
-class ListProjectController implements RequestHandlerInterface
+class ProjectDetailsController implements RequestHandlerInterface
 {
 
 	public function __construct(
@@ -20,23 +21,16 @@ class ListProjectController implements RequestHandlerInterface
 	public function handle(ServerRequestInterface $request): ResponseInterface
 	{
 		$queryParams = $request->getQueryParams();
-		$filter = [];
 
-		if ($queryParams) {
-			$key = array_key_first($queryParams);
-			$value = $queryParams[$key];
-			$filter['filter'] = $key;
-			$filter['value'] = $value;
+		if (!isset($queryParams['id'])) {
+			return new Response(400, body: json_encode(['error' => 'O ID não foi informado!']));
 		}
 
-		/** @var Project[] $projectList */
-		$projectList = $this->repository->filterBy($filter);
-//		$projectList = $this->repository->findBy($filter);
-//		$dtoList = array_map(
-//			fn(Project $project) => new ListProjectDto($project),
-//			$projectList
-//		);
+		$id = filter_var($queryParams['id'], FILTER_VALIDATE_INT);
 
-		return new Response(200, body: json_encode($projectList));
+		$project = $this->repository->find($id);
+		$dto = new ProjectDetailsDto($project);
+
+		return new Response(200, body: json_encode($dto));
 	}
 }

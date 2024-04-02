@@ -20,7 +20,7 @@ class Media
 	#[Column(length: 175)]
 	public readonly string $url;
 	#[Column(length: 255, nullable: true)]
-	public readonly string $alt;
+	public readonly ?string $alt;
 	#[ManyToOne(
 		targetEntity: Project::class,
 		inversedBy: 'medias',

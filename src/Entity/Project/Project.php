@@ -21,7 +21,7 @@ use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
 class Project
 {
 	#[Column, Id, GeneratedValue]
-	private ?int $id = null;
+	private int $id;
 	#[Column(length: 75)]
 	public readonly string $name;
 	#[Column(length: 75)]
@@ -48,7 +48,7 @@ class Project
 		inversedBy: 'projects',
 		fetch: 'EAGER'
 	)]
-	public readonly Collection $sdgs;
+	public readonly Collection $sdg;
 
 	#[OneToMany(
 		targetEntity: Media::class,
@@ -60,7 +60,7 @@ class Project
 
 	public function __construct()
 	{
-		$this->sdgs = new ArrayCollection();
+		$this->sdg = new ArrayCollection();
 		$this->medias = new ArrayCollection();
 	}
 

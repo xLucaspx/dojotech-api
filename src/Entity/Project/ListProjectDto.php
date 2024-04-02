@@ -30,6 +30,6 @@ class ListProjectDto
 
 		$this->coverImageUrl = "/img/project/{$coverImageUrl}";
 
-		$this->sdg = $project->sdgs->map(fn(Sdg $sdg) => $sdg->id())->toArray();
+		$this->sdg = $project->sdg->map(fn(Sdg $sdg) => $sdg->id())->toArray();
 	}
 }
