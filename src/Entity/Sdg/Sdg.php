@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\Table;
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
@@ -25,7 +26,7 @@ class Sdg
 
 	#[ManyToMany(
 		targetEntity: Project::class,
-		inversedBy: 'sdgs'
+		mappedBy: 'sdgs'
 	)]
 	public readonly Collection $projects;
 
@@ -34,7 +35,7 @@ class Sdg
 		$this->projects = new ArrayCollection();
 	}
 
-	public function id()
+	public function id(): int
 	{
 		return $this->id;
 	}

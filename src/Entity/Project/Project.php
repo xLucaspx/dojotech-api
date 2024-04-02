@@ -8,17 +8,20 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 use Xlucaspx\Dojotech\Api\Entity\Sdg\Sdg;
 use Xlucaspx\Dojotech\Api\Entity\User\User;
+use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
 
-#[Entity, Table(name: 'project')]
+#[Entity(repositoryClass: ProjectRepository::class), Table(name: 'project')]
 class Project
 {
 	#[Column, Id, GeneratedValue]
-	private int $id;
+	private ?int $id = null;
 	#[Column(length: 75)]
 	public readonly string $name;
 	#[Column(length: 75)]
@@ -29,7 +32,7 @@ class Project
 	public readonly string $target;
 	#[Column(length: 50)]
 	public readonly string $city;
-	#[Column(length: 255)]
+	#[Column(length: 255, nullable: true)]
 	public readonly string $partners;
 	#[Column(type: 'text')]
 	public readonly string $summary;
@@ -37,21 +40,31 @@ class Project
 	#[ManyToOne(
 		targetEntity: User::class,
 		inversedBy: 'projects'
-	)]
+	), JoinColumn(nullable: false)]
 	public readonly User $user;
 
 	#[ManyToMany(
 		targetEntity: Sdg::class,
-		mappedBy: 'projects'
+		inversedBy: 'projects',
+		fetch: 'EAGER'
 	)]
 	public readonly Collection $sdgs;
+
+	#[OneToMany(
+		targetEntity: Media::class,
+		mappedBy: 'project',
+		cascade: ["persist", "remove"],
+		fetch: 'LAZY'
+	)]
+	public readonly Collection $medias;
 
 	public function __construct()
 	{
 		$this->sdgs = new ArrayCollection();
+		$this->medias = new ArrayCollection();
 	}
 
-	public function id(): int
+	public function id(): ?int
 	{
 		return $this->id;
 	}

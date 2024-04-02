@@ -21,7 +21,7 @@ class ListSdgController implements RequestHandlerInterface
 		/** @var Sdg[] $sdgList */
 		$sdgList = $this->repository->findAll();
 		$dtoList = array_map(
-			fn(Sdg $sdg) => new SdgDetailsDto($sdg->id(), $sdg->name, $sdg->imageUrl),
+			fn(Sdg $sdg) => new SdgDetailsDto($sdg),
 			$sdgList
 		);
 

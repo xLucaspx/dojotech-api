@@ -44,7 +44,7 @@ final class Version20240401130910 extends AbstractMigration
 				`goal` VARCHAR(125) NOT NULL,
 				`target` VARCHAR(75) NOT NULL,
 				`city` VARCHAR(50) NOT NULL,
-				`partners` VARCHAR(255) NOT NULL,
+				`partners` VARCHAR(255) DEFAULT NULL,
 				`summary` TEXT NOT NULL,
 				`user_id` INT NOT NULL,
 				CONSTRAINT `fk_project_user`
@@ -81,7 +81,6 @@ final class Version20240401130910 extends AbstractMigration
 		$this->addSql(<<<END
 			CREATE TABLE `media` (
 				`id` INT AUTO_INCREMENT PRIMARY KEY,
-				`name` VARCHAR(100) NOT NULL,
 				`type` VARCHAR(25) NOT NULL,
 				`url` VARCHAR(175) NOT NULL,
 				`alt` VARCHAR(255) DEFAULT NULL,

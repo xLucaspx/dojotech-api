@@ -19,9 +19,9 @@ class User
 	private int $id;
 	#[Column(length: 75)]
 	public readonly string $name;
-	#[Column(length: 50)]
+	#[Column(length: 50, unique: true)]
 	public readonly string $email;
-	#[Column(length: 20)]
+	#[Column(length: 20, unique: true)]
 	public readonly string $username;
 	#[Column(length: 13)]
 	public readonly string $phone;
@@ -45,9 +45,9 @@ class User
 	public readonly string $address;
 	#[Column(length: 50)]
 	public readonly string $district;
-	#[Column(length: 10)]
+	#[Column(length: 10, nullable: true)]
 	public readonly string $number;
-	#[Column(length: 50)]
+	#[Column(length: 50, nullable: true)]
 	public readonly string $complement;
 	#[Column(length: 50)]
 	public readonly string $city;
