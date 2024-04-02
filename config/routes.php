@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+use Xlucaspx\Dojotech\Api\Controller\Sdg\ListSdgController;
+
 return [
-	// 'GET|/sdg' => ,
+	 'GET|/sdg' => ListSdgController::class,
 
 	// 'GET|/user' => ,
 	// 'POST|/user' => ,

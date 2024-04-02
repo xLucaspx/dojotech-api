@@ -45,7 +45,7 @@ final class Version20240401130910 extends AbstractMigration
 				`target` VARCHAR(75) NOT NULL,
 				`city` VARCHAR(50) NOT NULL,
 				`partners` VARCHAR(255) NOT NULL,
-				`summary` text  NOT NULL,
+				`summary` TEXT NOT NULL,
 				`user_id` INT NOT NULL,
 				CONSTRAINT `fk_project_user`
 					FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) 
