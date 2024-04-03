@@ -2,17 +2,12 @@
 
 namespace Xlucaspx\Dojotech\Api\Entity\User;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\OneToMany;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\Common\Collections\{ArrayCollection, Collection};
+use Doctrine\ORM\Mapping\{Column, Entity, GeneratedValue, Id, OneToMany, Table};
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
+use Xlucaspx\Dojotech\Api\Repository\UserRepository;
 
-#[Entity, Table(name: 'user')]
+#[Entity(repositoryClass: UserRepository::class), Table(name: 'user')]
 class User
 {
 	#[Column, Id, GeneratedValue]
@@ -27,8 +22,6 @@ class User
 	public readonly string $phone;
 	#[Column(name: 'password_hash', length: 255)]
 	public readonly string $passwordHash;
-	#[Column(name: 'password_salt', length: 255)]
-	public readonly string $passwordSalt;
 
 	#[OneToMany(
 		targetEntity: Project::class,

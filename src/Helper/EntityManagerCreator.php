@@ -27,12 +27,12 @@ class EntityManagerCreator
 		$config->setMiddlewares([$logMiddleware]);
 
 		$connection = DriverManager::getConnection([
-			'driver' => 'pdo_mysql',
-			'host' => '127.0.0.1',
-			'port' => '3306',
-			'user' => 'user01',
-			'password' => 'admin',
-			'dbname' => 'dojotech_php'
+			'driver' => $_ENV['DB_DRIVER'],
+			'host' => $_ENV['DB_HOST'],
+			'port' => $_ENV['DB_PORT'],
+			'user' => $_ENV['DB_USERNAME'],
+			'password' => $_ENV['DB_PASSWORD'],
+			'dbname' => $_ENV['DB_DATABASE']
 		], $config);
 
 		return new EntityManager($connection, $config);

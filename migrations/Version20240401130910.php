@@ -24,7 +24,6 @@ final class Version20240401130910 extends AbstractMigration
 				`username` VARCHAR(20) NOT NULL UNIQUE,
 				`phone` VARCHAR(13) NOT NULL,
 				`password_hash` VARCHAR(255) NOT NULL,
-				`password_salt` VARCHAR(255) NOT NULL,
 				`postal_code` VARCHAR(8) NOT NULL,
 				`address` VARCHAR(100) NOT NULL,
 				`district` VARCHAR(50) NOT NULL,

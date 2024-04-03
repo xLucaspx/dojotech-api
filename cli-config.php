@@ -6,6 +6,7 @@ use Doctrine\Migrations\DependencyFactory;
 use Xlucaspx\Dojotech\Api\Helper\EntityManagerCreator;
 
 require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/config/env.php';
 
 $config = new PhpFile(__DIR__ . '/migrations.php');
 

@@ -9,6 +9,9 @@ use Xlucaspx\Dojotech\Api\Controller\Error\Error404Controller;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+// load environment variables
+require_once __DIR__ . '/../config/env.php';
+
 // handle CORS
 require_once __DIR__ . '/../config/cors.php';
 
