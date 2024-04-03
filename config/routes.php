@@ -7,6 +7,7 @@ use Xlucaspx\Dojotech\Api\Controller\Auth\LoginController;
 use Xlucaspx\Dojotech\Api\Controller\Project\ListProjectController;
 use Xlucaspx\Dojotech\Api\Controller\Project\ProjectDetailsController;
 use Xlucaspx\Dojotech\Api\Controller\Sdg\ListSdgController;
+use Xlucaspx\Dojotech\Api\Controller\User\UserDetailsController;
 
 return [
 	// public routes
@@ -17,8 +18,8 @@ return [
 
 	// private routes
 	'GET|/auth' => AuthController::class,
+	'GET|/user/details' => UserDetailsController::class,
 
-	// 'GET|/user' => ,
 	// 'POST|/user' => ,
 	// 'PUT|/user' => ,
 	// 'DELETE|/user' => ,

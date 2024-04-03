@@ -20,10 +20,6 @@ class AuthController implements RequestHandlerInterface
 
 	public function handle(ServerRequestInterface $request): ResponseInterface
 	{
-		if (!$request->hasHeader('authorization')) {
-			return new Response(401, body: json_encode(['error' => 'Token de autorização não enviado']));
-		}
-
 		$token = preg_replace('/^bearer\s/i', '', $request->getHeaderLine('authorization'));
 
 		try {

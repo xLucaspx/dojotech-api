@@ -39,9 +39,9 @@ class User
 	#[Column(length: 50)]
 	public readonly string $district;
 	#[Column(length: 10, nullable: true)]
-	public readonly string $number;
+	public readonly ?string $number;
 	#[Column(length: 50, nullable: true)]
-	public readonly string $complement;
+	public readonly ?string $complement;
 	#[Column(length: 50)]
 	public readonly string $city;
 	#[Column(length: 2)]

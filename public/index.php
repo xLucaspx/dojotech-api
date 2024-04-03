@@ -2,10 +2,13 @@
 
 declare(strict_types=1);
 
+use Firebase\JWT\SignatureInvalidException;
 use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7\Response;
 use Nyholm\Psr7Server\ServerRequestCreator;
 use Psr\Container\ContainerInterface;
 use Xlucaspx\Dojotech\Api\Controller\Error\Error404Controller;
+use Xlucaspx\Dojotech\Api\Utils\JsonWebToken;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -23,22 +26,42 @@ $diContainer = require_once __DIR__ . '/../config/dependencies.php';
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $pathInfo = $_SERVER['PATH_INFO'];
-
 $key = "$httpMethod|$pathInfo";
-
-$controller = new Error404Controller();
-
-if (array_key_exists($key, $routes)) {
-	$controllerClass = $routes[$key];
-	$controller = $diContainer->get($controllerClass);
-}
 
 $psr17Factory = new Psr17Factory();
 $creator = new ServerRequestCreator(
 	$psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory
 );
-
 $request = $creator->fromGlobals();
+
+$publicRoutes = ['GET|/sdg', 'GET|/project', 'GET|/project/details', 'POST|/login'];
+// if accessing private routes the Authorization header is required
+if (!in_array($key, $publicRoutes)) {
+	if (!$request->hasHeader('Authorization')) {
+		$res = new Response(401, body: json_encode(['error' => 'Token de autorização não enviado!']));
+		echo $res->getBody();
+		exit();
+	}
+
+	$token = preg_replace('/^bearer\s/i', '', $request->getHeaderLine('authorization'));
+
+	try {
+		$decoded = JsonWebToken::decode($token);
+
+		if (!$decoded) {
+			$res = new Response(401, body: json_encode(['error' => 'Token de autorização inválido']));
+			echo $res->getBody();
+			exit();
+		}
+	} catch (SignatureInvalidException) {
+		$res = new Response(401, body: json_encode(['error' => 'Token de autorização inválido']));
+		echo $res->getBody();
+		exit();
+	}
+}
+
+// controller class = $routes[$key]
+$controller = array_key_exists($key, $routes) ? $diContainer->get($routes[$key]) : new Error404Controller();
 
 $response = $controller->handle($request);
 
