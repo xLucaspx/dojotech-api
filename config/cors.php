@@ -12,6 +12,9 @@ header('Access-Control-Allow-Headers: X-Requested-With,Authorization,Content-Typ
 // Set the age to 1 day to improve speed/caching.
 header('Access-Control-Max-Age: 86400');
 
+// Set Content-Type
+header('Content-Type: application/json');
+
 // Exit early so the page isn't fully loaded for options requests
 if (strtolower($_SERVER['REQUEST_METHOD']) == 'options') {
 	exit();
