@@ -9,8 +9,6 @@ use Xlucaspx\Dojotech\Api\Entity\Project\ProjectDetailsDto;
 
 class ProjectRepository extends EntityRepository
 {
-	private string $projectClass = Project::class;
-
 	/** @return ProjectDetailsDto[] */
 	public function filterBy(array $filter = []): array
 	{

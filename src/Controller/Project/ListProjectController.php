@@ -6,8 +6,6 @@ use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Xlucaspx\Dojotech\Api\Entity\Project\ListProjectDto;
-use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
 
 class ListProjectController implements RequestHandlerInterface
@@ -29,7 +27,6 @@ class ListProjectController implements RequestHandlerInterface
 			$filter['value'] = $value;
 		}
 
-		/** @var Project[] $projectList */
 		$projectList = $this->repository->filterBy($filter);
 //		$projectList = $this->repository->findBy($filter);
 //		$dtoList = array_map(

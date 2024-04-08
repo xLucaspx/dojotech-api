@@ -2,7 +2,6 @@
 
 namespace Xlucaspx\Dojotech\Api\Controller\User;
 
-use Firebase\JWT\SignatureInvalidException;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -17,7 +16,8 @@ class UserDetailsController implements RequestHandlerInterface
 		private UserRepository $repository
 	) {}
 
-	public function handle(ServerRequestInterface $request): ResponseInterface {
+	public function handle(ServerRequestInterface $request): ResponseInterface
+	{
 		$queryParams = $request->getQueryParams();
 
 		if (!isset($queryParams['id'])) {
@@ -26,7 +26,7 @@ class UserDetailsController implements RequestHandlerInterface
 
 		$queryId = filter_var($queryParams['id'], FILTER_VALIDATE_INT);
 
-		$token = preg_replace('/^bearer\s/i', '', $request->getHeaderLine('authorization'));
+		$token = $request->getHeaderLine('authorization');
 		$decoded = JsonWebToken::decode($token);
 		$userId = $decoded['sub'];
 

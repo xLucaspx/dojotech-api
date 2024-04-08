@@ -6,8 +6,6 @@ use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Xlucaspx\Dojotech\Api\Entity\Project\ListProjectDto;
-use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 use Xlucaspx\Dojotech\Api\Entity\Project\ProjectDetailsDto;
 use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
 

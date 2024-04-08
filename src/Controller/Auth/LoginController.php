@@ -29,7 +29,7 @@ class LoginController implements RequestHandlerInterface
 			? $this->repository->findOneBy(['email' => $typedUser])
 			: $this->repository->findOneBy(['username' => $typedUser]);
 
-		if (!$userData || !password_verify($typedPassword, $userData->passwordHash)) {
+		if (!$userData || !password_verify($typedPassword, $userData->passwordHash())) {
 			return new Response(400, body: json_encode(['error' => 'Usuário ou senha inválidos!']));
 		}
 
@@ -38,7 +38,7 @@ class LoginController implements RequestHandlerInterface
 //			$this->userRepository->updatePassword($updateData);
 //		}
 
-		$jwt = JsonWebToken::encode($userData->id(), $userData->name);
+		$jwt = JsonWebToken::encode($userData->id(), $userData->name());
 		return new Response(200, body: json_encode(['token' => $jwt]));
 	}
 }

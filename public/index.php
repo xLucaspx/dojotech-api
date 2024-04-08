@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Firebase\JWT\ExpiredException;
 use Firebase\JWT\SignatureInvalidException;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7\Response;
@@ -34,7 +35,7 @@ $creator = new ServerRequestCreator(
 );
 $request = $creator->fromGlobals();
 
-$publicRoutes = ['GET|/sdg', 'GET|/project', 'GET|/project/details', 'POST|/login'];
+$publicRoutes = ['GET|/sdg', 'GET|/project', 'GET|/project/details', 'POST|/user', 'POST|/login'];
 // if accessing private routes the Authorization header is required
 if (!in_array($key, $publicRoutes)) {
 	if (!$request->hasHeader('Authorization')) {
@@ -43,7 +44,7 @@ if (!in_array($key, $publicRoutes)) {
 		exit();
 	}
 
-	$token = preg_replace('/^bearer\s/i', '', $request->getHeaderLine('authorization'));
+	$token = $request->getHeaderLine('authorization');
 
 	try {
 		$decoded = JsonWebToken::decode($token);
@@ -53,8 +54,8 @@ if (!in_array($key, $publicRoutes)) {
 			echo $res->getBody();
 			exit();
 		}
-	} catch (SignatureInvalidException) {
-		$res = new Response(401, body: json_encode(['error' => 'Token de autorização inválido']));
+	} catch (SignatureInvalidException|ExpiredException) {
+		$res = new Response(401, body: json_encode(['error' => 'Token de autorização inválido ou expirado']));
 		echo $res->getBody();
 		exit();
 	}

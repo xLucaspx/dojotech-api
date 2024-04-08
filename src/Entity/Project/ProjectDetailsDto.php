@@ -13,6 +13,7 @@ class ProjectDetailsDto
 	public readonly string $city;
 	public readonly string $cause;
 	public readonly string $goal;
+	public readonly string $target;
 	public readonly string $summary;
 	public readonly string $partners;
 	public readonly array $medias;
@@ -26,6 +27,7 @@ class ProjectDetailsDto
 		$this->city = $project->city;
 		$this->cause = $project->cause;
 		$this->goal = $project->goal;
+		$this->target = $project->target;
 		$this->summary = $project->summary;
 		$this->partners = $project->partners;
 		$this->medias = $project->medias->map(fn(Media $media) => new MediaDetailsDto($media))->toArray();

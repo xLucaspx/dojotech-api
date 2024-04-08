@@ -44,6 +44,7 @@ class JsonWebToken
 			throw new UnauthorizedError("Token de autorização inválido!");
 		}
 		*/
+		$token = preg_replace('/^bearer\s/i', '', $token);
 		return (array)JWT::decode($token, new Key($_ENV['TOKEN_SECRET'], 'HS256'));
 	}
 }
