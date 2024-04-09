@@ -58,6 +58,7 @@ class Project
 	)]
 	private Collection $medias;
 
+	/** @param Sdg[] $sdg */
 	public function __construct(NewProjectDto $dto, User $user, array $sdg)
 	{
 		$this->name = $dto->name;
@@ -71,6 +72,20 @@ class Project
 
 		$this->sdg = new ArrayCollection($sdg);
 		$this->medias = new ArrayCollection();
+	}
+
+	/** @param Sdg[] $sdg */
+	public function update(UpdateProjectDto $dto, array $sdg)
+	{
+		$this->name = $dto->name;
+		$this->cause = $dto->cause;
+		$this->goal = $dto->goal;
+		$this->target = $dto->target;
+		$this->city = $dto->city;
+		$this->partners = $dto->partners;
+		$this->summary = $dto->summary;
+
+		$this->sdg = new ArrayCollection($sdg);
 	}
 
 	public function id(): ?int

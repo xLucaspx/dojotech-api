@@ -2,8 +2,6 @@
 
 namespace Xlucaspx\Dojotech\Api\Entity\User;
 
-use Xlucaspx\Dojotech\Api\Entity\Project\ListProjectDto;
-use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 use Xlucaspx\Dojotech\Api\Entity\User\Address\AddressDto;
 
 class UserDetailsDto

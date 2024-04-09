@@ -9,7 +9,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Entity\User\Address\AddressDto;
-use Xlucaspx\Dojotech\Api\Entity\User\Address\PostalCode;
 use Xlucaspx\Dojotech\Api\Entity\User\NewUserDto;
 use Xlucaspx\Dojotech\Api\Repository\UserRepository;
 

@@ -8,7 +8,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
-use Xlucaspx\Dojotech\Api\Repository\UserRepository;
 use Xlucaspx\Dojotech\Api\Utils\JsonWebToken;
 
 class DeleteProjectController implements RequestHandlerInterface

@@ -2,10 +2,11 @@
 
 namespace Xlucaspx\Dojotech\Api\Entity\Project;
 
-class NewProjectDto
+class UpdateProjectDto
 {
 	/** @param int[] $sdgIds */
 	public function __construct(
+		public readonly int $id,
 		public readonly string $name,
 		public readonly string $cause,
 		public readonly string $goal,

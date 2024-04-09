@@ -2,7 +2,6 @@
 
 namespace Xlucaspx\Dojotech\Api\Entity\Project;
 
-use Doctrine\Common\Collections\Collection;
 use Xlucaspx\Dojotech\Api\Entity\Sdg\Sdg;
 
 class ListProjectDto

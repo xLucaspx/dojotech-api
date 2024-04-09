@@ -22,23 +22,21 @@ class UpdateUserController implements RequestHandlerInterface
 	public function handle(ServerRequestInterface $request): ResponseInterface
 	{
 		try {
-			$queryParams = $request->getQueryParams();
+			$body = json_decode($request->getBody(), true);
 
-			if (!isset($queryParams['id'])) {
+			if (!isset($body['id'])) {
 				return new Response(400, body: json_encode(['error' => 'O ID do usuário não foi informado!']));
 			}
 
-			$queryId = filter_var($queryParams['id'], FILTER_VALIDATE_INT);
+			$requestId = filter_var($body['id'], FILTER_VALIDATE_INT);
 
 			$token = $request->getHeaderLine('authorization');
 			$decoded = JsonWebToken::decode($token);
 			$userId = $decoded['sub'];
 
-			if ($userId !== $queryId) {
+			if ($userId !== $requestId) {
 				return new Response(401, body: json_encode(['error' => 'Não é possível modificar os dados de outros usuários!']));
 			}
-
-			$body = json_decode($request->getBody(), true);
 
 			$name = filter_var($body['name']);
 			$email = filter_var($body['email'], FILTER_VALIDATE_EMAIL);

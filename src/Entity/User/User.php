@@ -6,7 +6,6 @@ use Doctrine\Common\Collections\{ArrayCollection, Collection};
 use Doctrine\ORM\Mapping\{Column, Entity, GeneratedValue, Id, OneToMany, Table};
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 use Xlucaspx\Dojotech\Api\Entity\User\Address\AddressDto;
-use Xlucaspx\Dojotech\Api\Entity\User\Address\PostalCode;
 use Xlucaspx\Dojotech\Api\Repository\UserRepository;
 
 #[Entity(repositoryClass: UserRepository::class), Table(name: 'user')]

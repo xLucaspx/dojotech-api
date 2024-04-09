@@ -3,10 +3,12 @@
 namespace Xlucaspx\Dojotech\Api\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use DomainException;
 use Xlucaspx\Dojotech\Api\Entity\Project\ListProjectDto;
 use Xlucaspx\Dojotech\Api\Entity\Project\NewProjectDto;
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 use Xlucaspx\Dojotech\Api\Entity\Project\ProjectDetailsDto;
+use Xlucaspx\Dojotech\Api\Entity\Project\UpdateProjectDto;
 use Xlucaspx\Dojotech\Api\Entity\Sdg\Sdg;
 use Xlucaspx\Dojotech\Api\Entity\User\User;
 
@@ -18,7 +20,9 @@ class ProjectRepository extends EntityRepository
 		$em = $this->getEntityManager();
 
 		$user = $em->find(User::class, $projectData->userId);
-		$sdg = array_map(fn(int $sdgId) => $em->find(Sdg::class, $sdgId), $projectData->sdgIds);
+		$sdg = array_map(
+			fn(int $sdgId) => $em->find(Sdg::class, filter_var($sdgId, FILTER_VALIDATE_INT)),
+			$projectData->sdgIds);
 
 		$project = new Project($projectData, $user, $sdg);
 
@@ -26,6 +30,26 @@ class ProjectRepository extends EntityRepository
 		$em->flush();
 
 		return $project->id();
+	}
+
+	public function update(UpdateProjectDto $projectData): void
+	{
+		$em = $this->getEntityManager();
+
+		/** @var Project $project */
+		$project = $this->find($projectData->id);
+
+		if ($projectData->userId !== $project->user()->id()) {
+			throw new DomainException('Não é possível modificar o projeto de outros usuários!');
+		}
+
+		$sdg = array_map(
+			fn(int $sdgId) => $em->find(Sdg::class, filter_var($sdgId, FILTER_VALIDATE_INT)),
+			$projectData->sdgIds);
+
+		$project->update($projectData, $sdg);
+
+		$this->getEntityManager()->flush();
 	}
 
 	/** @return ProjectDetailsDto[] */

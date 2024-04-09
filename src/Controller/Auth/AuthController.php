@@ -2,12 +2,10 @@
 
 namespace Xlucaspx\Dojotech\Api\Controller\Auth;
 
-use Firebase\JWT\SignatureInvalidException;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Xlucaspx\Dojotech\Api\Repository\UserRepository;
 use Xlucaspx\Dojotech\Api\Utils\JsonWebToken;
 
 class AuthController implements RequestHandlerInterface

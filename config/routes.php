@@ -6,7 +6,8 @@ use Xlucaspx\Dojotech\Api\Controller\Auth\{AuthController, LoginController};
 use Xlucaspx\Dojotech\Api\Controller\Project\{DeleteProjectController,
 	ListProjectController,
 	NewProjectController,
-	ProjectDetailsController
+	ProjectDetailsController,
+	UpdateProjectController
 };
 use Xlucaspx\Dojotech\Api\Controller\Sdg\ListSdgController;
 use Xlucaspx\Dojotech\Api\Controller\User\{DeleteUserController,
@@ -32,9 +33,9 @@ return [
 	'PUT|/user' => UpdateUserController::class,
 	'DELETE|/user' => DeleteUserController::class,
 
-
 	'POST|/project' => NewProjectController::class,
-	// 'GET|/project/report' => ,
-	// 'PUT|/project' => ,
+	'PUT|/project' => UpdateProjectController::class,
 	'DELETE|/project' => DeleteProjectController::class,
+
+	// 'GET|/project/report' => ,
 ];
