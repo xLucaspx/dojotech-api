@@ -4,11 +4,30 @@ namespace Xlucaspx\Dojotech\Api\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Xlucaspx\Dojotech\Api\Entity\Project\ListProjectDto;
+use Xlucaspx\Dojotech\Api\Entity\Project\NewProjectDto;
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 use Xlucaspx\Dojotech\Api\Entity\Project\ProjectDetailsDto;
+use Xlucaspx\Dojotech\Api\Entity\Sdg\Sdg;
+use Xlucaspx\Dojotech\Api\Entity\User\User;
 
 class ProjectRepository extends EntityRepository
 {
+	/** @return int Returns the generated ID */
+	public function add(NewProjectDto $projectData): int
+	{
+		$em = $this->getEntityManager();
+
+		$user = $em->find(User::class, $projectData->userId);
+		$sdg = array_map(fn(int $sdgId) => $em->find(Sdg::class, $sdgId), $projectData->sdgIds);
+
+		$project = new Project($projectData, $user, $sdg);
+
+		$em->persist($project);
+		$em->flush();
+
+		return $project->id();
+	}
+
 	/** @return ProjectDetailsDto[] */
 	public function filterBy(array $filter = []): array
 	{
@@ -51,7 +70,7 @@ class ProjectRepository extends EntityRepository
 				continue;
 			}
 
-			$sdg = $project->sdg;
+			$sdg = $project->sdg();
 			foreach ($sdg as $value) {
 				$name = "{$value->id()} - {$value->name}";
 				if (preg_match("/$sdgName/i", $name)) {
@@ -66,5 +85,12 @@ class ProjectRepository extends EntityRepository
 		);
 
 		return $list;
+	}
+
+	public function delete(Project $project)
+	{
+		$em = $this->getEntityManager();
+		$em->remove($project);
+		$em->flush();
 	}
 }

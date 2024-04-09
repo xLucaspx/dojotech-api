@@ -23,32 +23,32 @@ class Project
 	#[Column, Id, GeneratedValue]
 	private int $id;
 	#[Column(length: 75)]
-	public readonly string $name;
+	private string $name;
 	#[Column(length: 75)]
-	public readonly string $cause;
+	private string $cause;
 	#[Column(length: 125)]
-	public readonly string $goal;
+	private string $goal;
 	#[Column(length: 75)]
-	public readonly string $target;
+	private string $target;
 	#[Column(length: 50)]
-	public readonly string $city;
+	private string $city;
 	#[Column(length: 255, nullable: true)]
-	public readonly string $partners;
+	private string $partners;
 	#[Column(type: 'text')]
-	public readonly string $summary;
+	private string $summary;
 
 	#[ManyToOne(
 		targetEntity: User::class,
-		inversedBy: 'projects'
+		inversedBy: 'projects',
 	), JoinColumn(nullable: false)]
-	public readonly User $user;
+	private User $user;
 
 	#[ManyToMany(
 		targetEntity: Sdg::class,
 		inversedBy: 'projects',
-		fetch: 'EAGER'
+		fetch: 'EAGER',
 	)]
-	public readonly Collection $sdg;
+	private Collection $sdg;
 
 	#[OneToMany(
 		targetEntity: Media::class,
@@ -56,16 +56,75 @@ class Project
 		cascade: ["persist", "remove"],
 		fetch: 'LAZY'
 	)]
-	public readonly Collection $medias;
+	private Collection $medias;
 
-	public function __construct()
+	public function __construct(NewProjectDto $dto, User $user, array $sdg)
 	{
-		$this->sdg = new ArrayCollection();
+		$this->name = $dto->name;
+		$this->cause = $dto->cause;
+		$this->goal = $dto->goal;
+		$this->target = $dto->target;
+		$this->city = $dto->city;
+		$this->partners = $dto->partners;
+		$this->summary = $dto->summary;
+		$this->user = $user;
+
+		$this->sdg = new ArrayCollection($sdg);
 		$this->medias = new ArrayCollection();
 	}
 
 	public function id(): ?int
 	{
 		return $this->id;
+	}
+
+	public function name(): string
+	{
+		return $this->name;
+	}
+
+	public function cause(): string
+	{
+		return $this->cause;
+	}
+
+	public function goal(): string
+	{
+		return $this->goal;
+	}
+
+	public function target(): string
+	{
+		return $this->target;
+	}
+
+	public function city(): string
+	{
+		return $this->city;
+	}
+
+	public function partners(): string
+	{
+		return $this->partners;
+	}
+
+	public function summary(): string
+	{
+		return $this->summary;
+	}
+
+	public function user(): User
+	{
+		return $this->user;
+	}
+
+	public function sdg(): Collection
+	{
+		return $this->sdg;
+	}
+
+	public function medias(): Collection
+	{
+		return $this->medias;
 	}
 }

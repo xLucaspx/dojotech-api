@@ -11,13 +11,16 @@ use Xlucaspx\Dojotech\Api\Exception\DuplicateKeyException;
 
 class UserRepository extends EntityRepository
 {
-	public function add(NewUserDto $userData): void
+	/** @return int Returns the generated ID */
+	public function add(NewUserDto $userData): int
 	{
 		$user = new User($userData);
 
 		$em = $this->getEntityManager();
 		$em->persist($user);
 		$em->flush();
+
+		return $user->id();
 	}
 
 	public function update(UpdateUserDto $userData): void
@@ -36,6 +39,16 @@ class UserRepository extends EntityRepository
 		$user->update($userData);
 
 		$this->getEntityManager()->flush();
+	}
+
+	public function delete(int $id): void
+	{
+		/** @var User $user */
+		$user = $this->find($id);
+
+		$em = $this->getEntityManager();
+		$em->remove($user);
+		$em->flush();
 	}
 
 	public function existsByEmail(string $email): bool

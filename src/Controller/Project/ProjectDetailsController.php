@@ -27,6 +27,11 @@ class ProjectDetailsController implements RequestHandlerInterface
 		$id = filter_var($queryParams['id'], FILTER_VALIDATE_INT);
 
 		$project = $this->repository->find($id);
+
+		if (!$project) {
+			return new Response(404, body: json_encode(['error' => "Nenhum projeto encontrado para o ID $id"]));
+		}
+
 		$dto = new ProjectDetailsDto($project);
 
 		return new Response(200, body: json_encode($dto));

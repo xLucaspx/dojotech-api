@@ -23,15 +23,15 @@ class ProjectDetailsDto
 	public function __construct(Project $project)
 	{
 		$this->id = $project->id();
-		$this->name = $project->name;
-		$this->city = $project->city;
-		$this->cause = $project->cause;
-		$this->goal = $project->goal;
-		$this->target = $project->target;
-		$this->summary = $project->summary;
-		$this->partners = $project->partners;
-		$this->medias = $project->medias->map(fn(Media $media) => new MediaDetailsDto($media))->toArray();
-		$this->sdg = $project->sdg->map(fn(Sdg $sdg) => new SdgDetailsDto($sdg))->toArray();
-		$this->userId = $project->user->id();
+		$this->name = $project->name();
+		$this->city = $project->city();
+		$this->cause = $project->cause();
+		$this->goal = $project->goal();
+		$this->target = $project->target();
+		$this->summary = $project->summary();
+		$this->partners = $project->partners();
+		$this->medias = $project->medias()->map(fn(Media $media) => new MediaDetailsDto($media))->toArray();
+		$this->sdg = $project->sdg()->map(fn(Sdg $sdg) => new SdgDetailsDto($sdg))->toArray();
+		$this->userId = $project->user()->id();
 	}
 }

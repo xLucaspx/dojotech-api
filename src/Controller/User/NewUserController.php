@@ -48,8 +48,8 @@ class NewUserController implements RequestHandlerInterface
 			$address = new AddressDto($postalCode, $address, $district, $number, $complement, $city, $state);
 			$dto = new NewUserDto($name, $email, $username, $phone, $password, $address);
 
-			$this->repository->add($dto);
-			return new Response(201);
+			$id = $this->repository->add($dto);
+			return new Response(201, body: json_encode(['id' => $id]));
 		} catch (DomainException $e) {
 			return new Response(400, body: json_encode(['error' => $e->getMessage()]));
 		} catch (ORMException $e) {
