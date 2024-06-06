@@ -41,6 +41,7 @@ class DeleteProjectController implements RequestHandlerInterface
 		}
 
 		$this->repository->delete($project);
+		// TODO: delete medias
 
 		return new Response(204);
 	}

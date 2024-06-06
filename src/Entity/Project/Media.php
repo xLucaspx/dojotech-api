@@ -9,8 +9,9 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\Table;
+use Xlucaspx\Dojotech\Api\Repository\MediaRepository;
 
-#[Entity, Table(name: 'media')]
+#[Entity(repositoryClass: MediaRepository::class), Table(name: 'media')]
 class Media
 {
 	#[Column, Id, GeneratedValue]

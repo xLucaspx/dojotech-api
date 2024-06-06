@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 use Xlucaspx\Dojotech\Api\Controller\Auth\{AuthController, LoginController};
 use Xlucaspx\Dojotech\Api\Controller\Project\{DeleteProjectController,
+	DeleteProjectMediaController,
 	ListProjectController,
 	NewProjectController,
 	ProjectDetailsController,
-	UpdateProjectController
-};
+	UpdateProjectController};
 use Xlucaspx\Dojotech\Api\Controller\Sdg\ListSdgController;
 use Xlucaspx\Dojotech\Api\Controller\User\{DeleteUserController,
 	ListUserProjectsController,
 	NewUserController,
 	UpdateUserController,
-	UserDetailsController
-};
+	UserDetailsController};
 
 return [
 	// public routes
@@ -36,6 +35,7 @@ return [
 	'POST|/project' => NewProjectController::class,
 	'PUT|/project' => UpdateProjectController::class,
 	'DELETE|/project' => DeleteProjectController::class,
+	'DELETE|/project/media' => DeleteProjectMediaController::class
 
 	// 'GET|/project/report' => ,
 ];
