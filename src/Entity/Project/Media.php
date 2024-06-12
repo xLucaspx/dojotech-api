@@ -28,6 +28,14 @@ class Media
 	), JoinColumn(nullable: false)]
 	public readonly Project $project;
 
+	public function __construct(NewMediaDto $dto, Project $project)
+	{
+		$this->type = $dto->type;
+		$this->url = $dto->url;
+		$this->alt = $dto->alt;
+		$this->project = $project;
+	}
+
 	public function id(): int
 	{
 		return $this->id;

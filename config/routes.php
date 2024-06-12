@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 use Xlucaspx\Dojotech\Api\Controller\Auth\{AuthController, LoginController};
-use Xlucaspx\Dojotech\Api\Controller\Project\{DeleteProjectController,
+use Xlucaspx\Dojotech\Api\Controller\Project\{AddMediasController,
+	DeleteProjectController,
 	DeleteProjectMediaController,
 	ListProjectController,
 	NewProjectController,
@@ -35,6 +36,8 @@ return [
 	'POST|/project' => NewProjectController::class,
 	'PUT|/project' => UpdateProjectController::class,
 	'DELETE|/project' => DeleteProjectController::class,
+
+	'POST|/project/media' => AddMediasController::class,
 	'DELETE|/project/media' => DeleteProjectMediaController::class
 
 	// 'GET|/project/report' => ,

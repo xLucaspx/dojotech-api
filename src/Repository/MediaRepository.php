@@ -5,9 +5,26 @@ namespace Xlucaspx\Dojotech\Api\Repository;
 use Doctrine\ORM\EntityRepository;
 use DomainException;
 use Xlucaspx\Dojotech\Api\Entity\Project\Media;
+use Xlucaspx\Dojotech\Api\Entity\Project\NewMediaDto;
+use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 
 class MediaRepository extends EntityRepository
 {
+	/** @return int Returns the generated ID */
+	public function add(NewMediaDto $mediaDto): int
+	{
+		$em = $this->getEntityManager();
+
+		$project = $em->find(Project::class, $mediaDto->projectId);
+
+		$media = new Media($mediaDto, $project);
+
+		$em->persist($media);
+		$em->flush();
+
+		return $media->id();
+	}
+
 	public function delete(Media $media): bool
 	{
 		$projectId = $media->project->id();

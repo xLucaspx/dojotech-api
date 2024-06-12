@@ -8,5 +8,4 @@ $dotenv->required('DB_HOST')->notEmpty();
 $dotenv->required('DB_PORT')->notEmpty();
 $dotenv->required('DB_DATABASE')->notEmpty();
 $dotenv->required('DB_USERNAME')->notEmpty();
-$dotenv->required('DB_PASSWORD')->notEmpty();
 $dotenv->required('TOKEN_SECRET')->notEmpty();

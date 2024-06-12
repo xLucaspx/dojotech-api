@@ -17,7 +17,8 @@
 		"doctrine/annotations": "^2.0",
 		"doctrine/migrations": "^3.7",
 		"symfony/cache": "^7.0",
-		"firebase/php-jwt": "^6.10"
+		"firebase/php-jwt": "^6.10",
+		"ext-fileinfo": "*"
 	},
 	"require-dev": {
 		"vlucas/phpdotenv": "^5.6"

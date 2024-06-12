@@ -25,7 +25,7 @@ class Sdg
 
 	#[ManyToMany(
 		targetEntity: Project::class,
-		mappedBy: 'sdgs'
+		mappedBy: 'sdg',
 	)]
 	public readonly Collection $projects;
 

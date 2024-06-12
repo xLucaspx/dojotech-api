@@ -7,13 +7,15 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
+use Xlucaspx\Dojotech\Api\Repository\MediaRepository;
 use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
 use Xlucaspx\Dojotech\Api\Utils\JsonWebToken;
 
 class DeleteProjectController implements RequestHandlerInterface
 {
 	public function __construct(
-		private ProjectRepository $repository
+		private ProjectRepository $projectRepository,
+		private MediaRepository $mediaRepository
 	) {}
 
 	public function handle(ServerRequestInterface $request): ResponseInterface
@@ -26,7 +28,7 @@ class DeleteProjectController implements RequestHandlerInterface
 
 		$projectId = filter_var($body['id'], FILTER_VALIDATE_INT);
 		/** @var Project $project */
-		$project = $this->repository->find($projectId);
+		$project = $this->projectRepository->find($projectId);
 
 		if (!$project) {
 			return new Response(404, body: json_encode(['error' => "Nenhum projeto encontrado para o ID $projectId"]));
@@ -40,8 +42,15 @@ class DeleteProjectController implements RequestHandlerInterface
 			return new Response(401, body: json_encode(['error' => 'Não é possível excluir o projeto de outros usuários!']));
 		}
 
-		$this->repository->delete($project);
-		// TODO: delete medias
+		$projectImageDir = __DIR__ . "/../../../public/img/project/{$project->id()}";
+		$medias = $project->medias();
+		foreach ($medias as $media) {
+			unlink("$projectImageDir/$media->url");
+		}
+
+		rmdir($projectImageDir);
+
+		$this->projectRepository->delete($project);
 
 		return new Response(204);
 	}
