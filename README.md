@@ -29,13 +29,13 @@ Desenvolver um projeto que englobe todos os tópicos do curso técnico em desenv
 
 ### Instalações necessárias
 
-Para executar o projeto é preciso ter instalado o [**PHP**](https://www.php.net/); a versão utilizada para o desenvolvimento foi a  **8.3.2**. É necessário, também, o uso do [**Composer**](https://getcomposer.org/) como gerenciador de dependências.
+Para executar o projeto é preciso ter instalado o [**PHP**](https://www.php.net/); a versão utilizada para o desenvolvimento foi a **8.3.2**. É necessário, também, o uso do [**Composer**](https://getcomposer.org/) como gerenciador de dependências.
 
 Também será necessário instalar o [**MySQL**](https://dev.mysql.com/downloads/windows/installer/8.0.html); a versão utilizada para o desenvolvimento foi a **8.0.31**.
 
 É recomendado que o usuário utilize as versões mais próximas possíveis das utilizadas em desenvolvimento. Tenha em mente que versões anteriores podem causar problemas de compatibilidade e erros na execução do projeto.
 
-Por fim, é recomendado que a _IDE_ utilizada para rodar o  _front-end_ do projeto seja o [**VS Code**](https://code.visualstudio.com/).
+Por fim, é recomendado que a _IDE_ utilizada para rodar o _front-end_ do projeto seja o [**VS Code**](https://code.visualstudio.com/).
 
 ### Configurando o ambiente
 
@@ -113,64 +113,64 @@ Para executar o _front-end_, abra o projeto no VS Code e navegue até a pasta **
 
 ### Funcionais
 
-- [x]  _CRUD_ projetos:
-	- [x]  Cadastro de projeto;
-	- [x]  Visualização de projeto;
-	- [x]  Edição de projeto;
-	- [x]  Exclusão de projeto.
-- [x]  _CRUD_ usuários:
-	- [x]  Cadastro de usuário;
-	- [x]  Visualização de usuário;
-	- [x]  Edição de usuário;
-	- [x]  Exclusão de usuário.
-- [x]  _Login_ e autenticação de usuário;
-- [x]  Deve ser possível realizar a filtragem de projetos:
-	- [x]  por ODS;
-	- [x]  por cidade;
-	- [x]  por causa de atuação;
-	- [x]  por público-alvo.
-- [x]  Deve ser possível adicionar até 5 imagens por projeto;
-- [ ]  Deve ser possível adicionar um vídeo de até 2min de duração por projeto;
-- [x]  Deve ser possível visualizar a quantidade total de projetos;
-- [x]  Deve ser possível visualizar a quantidade de projetos por ODS.
+- [x] _CRUD_ projetos:
+	- [x] Cadastro de projeto;
+	- [x] Visualização de projeto;
+	- [x] Edição de projeto;
+	- [x] Exclusão de projeto.
+- [x] _CRUD_ usuários:
+	- [x] Cadastro de usuário;
+	- [x] Visualização de usuário;
+	- [x] Edição de usuário;
+	- [x] Exclusão de usuário.
+- [x] _Login_ e autenticação de usuário;
+- [x] Deve ser possível realizar a filtragem de projetos:
+	- [x] por ODS;
+	- [x] por cidade;
+	- [x] por causa de atuação;
+	- [x] por público-alvo.
+- [x] Deve ser possível adicionar até 5 imagens por projeto;
+- [ ] Deve ser possível adicionar um vídeo de até 2min de duração por projeto;
+- [x] Deve ser possível visualizar a quantidade total de projetos;
+- [x] Deve ser possível visualizar a quantidade de projetos por ODS;
+- [ ] Deve ser possível gerar um relatório de sustentabilidade contendo o total de projetos e o total de projetos por ODS.
 
 ### Não funcionais
 
-- [x]  O site deve ser acessível a todos os tipos de usuários (acessibilidade);
-- [x]  O site deve ser responsivo e funcionar em _desktop_ e dispositivos móveis;
-- [x]  Criar componentes que possam ser reutilizados, evitando repetição e facilitando a manutenibilidade do projeto;
-- [x]  Estruturar o projeto separando os arquivos por funcionalidade e coerência;
-- [x]  Procurar escrever o código de forma semântica e organizada, facilitando o entendimento do sistema;
-- [x]  Validar dados inseridos pelo usuário conforme regras de negócio;
-- [x]  Utilizar criptografia para guardar dados sensíveis, como a senha do usuário;
-- [x]  Utilizar token para realizar autenticação de usuário, evitando tráfego de dados sensíveis;
-- [x]  Utilizar expressões regulares para escapar possíveis entradas maliciosas do usuário;
-- [ ]  Deve ser possível adicionar textos descritivos para as imagens;
-- [ ]  Validar e limitar tamanho máximo de _upload_ de mídias do projeto.
+- [x] O site deve ser acessível a todos os tipos de usuários (acessibilidade);
+- [x] O site deve ser responsivo e funcionar em _desktop_ e dispositivos móveis;
+- [x] Criar componentes que possam ser reutilizados, evitando repetição e facilitando a manutenibilidade do projeto;
+- [x] Estruturar o projeto separando os arquivos por funcionalidade e coerência;
+- [x] Procurar escrever o código de forma semântica e organizada, facilitando o entendimento do sistema;
+- [x] Validar dados inseridos pelo usuário conforme regras de negócio;
+- [x] Utilizar criptografia para guardar dados sensíveis, como a senha do usuário;
+- [x] Utilizar token para realizar autenticação de usuário, evitando tráfego de dados sensíveis;
+- [x] Utilizar expressões regulares para escapar possíveis entradas maliciosas do usuário;
+- [ ] Deve ser possível adicionar textos descritivos para as imagens;
+- [ ] Validar e limitar tamanho máximo de _upload_ de mídias do projeto.
 
 ## Tarefas
 
-- [x]  Elaborar documentação técnica;
-- [x]  Decidir linguagens, _frameworks_ e ferramentas que serão utilizados;
-- [x]  Elaboração de protótipo do site;
-- [x]  Criação do banco de dados;
-- [x]  Desenvolver página inicial;
-- [x]  Desenvolver página de _login_;
-- [x]  Desenvolver página de cadastro de usuário;
-- [x]  Desenvolver página "Conheça nossos projetos";
-- [x]  Desenvolver página de cadastro de projeto;
-- [x]  Desenvolver página de projeto;
-- [x]  Realizar integração com banco de dados;
-- [x]  Desenvolver funcionalidades:
-	- [x]  _Login_ e autenticação;
-	- [x]  _Upload_ de imagens;
-	- [ ]  _Upload_ de vídeo;
-	- [x]  Filtragem de projetos;
-	- [x]  Contabilização de projetos;
-	- [x]  Página de administração de dados do usuário;
-	- [x]  Botão "voltar" para facilitar navegação;
-	- [x]  Possibilidade de editar e excluir projeto;
-	- [ ]  Opção de gerar relatório contendo total de projetos e total de projetos por ODS.
+- [x] Elaborar documentação técnica;
+- [x] Decidir linguagens, _frameworks_ e ferramentas que serão utilizados;
+- [x] Elaboração de protótipo do site;
+- [x] Criação do banco de dados;
+- [x] Desenvolver página inicial;
+- [x] Desenvolver página de _login_;
+- [x] Desenvolver página de cadastro de usuário;
+- [x] Desenvolver página "Conheça nossos projetos";
+- [x] Desenvolver página de cadastro de projeto;
+- [x] Desenvolver página de projeto;
+- [x] Realizar integração com banco de dados;
+- [x] Desenvolver funcionalidades:
+	- [x] _Login_ e autenticação;
+	- [x] _Upload_ de imagens;
+	- [ ] _Upload_ de vídeo;
+	- [x] Filtragem de projetos;
+	- [x] Contabilização de projetos;
+	- [x] Página de administração de dados do usuário;
+	- [x] Botão "voltar" para facilitar navegação;
+	- [x] Possibilidade de editar e excluir projeto.
 
 ## Testes
 
