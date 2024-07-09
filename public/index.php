@@ -35,7 +35,7 @@ $creator = new ServerRequestCreator(
 );
 $request = $creator->fromGlobals();
 
-$publicRoutes = ['GET|/sdg', 'GET|/project', 'GET|/project/details', 'POST|/user', 'POST|/login'];
+$publicRoutes = ['GET|/sdg', 'GET|/project', 'GET|/project/details', 'GET|/project/report', 'POST|/user', 'POST|/login'];
 // if accessing private routes the Authorization header is required
 if (!in_array($key, $publicRoutes)) {
 	if (!$request->hasHeader('Authorization')) {

@@ -111,10 +111,27 @@ class ProjectRepository extends EntityRepository
 		return $list;
 	}
 
-	public function delete(Project $project)
+	public function delete(Project $project): void
 	{
 		$em = $this->getEntityManager();
 		$em->remove($project);
 		$em->flush();
+	}
+
+	public function getReportData()
+	{
+		$sql = <<<END
+			SELECT
+				sdg.id AS 'sdg_id',
+				sdg.name AS 'sdg_name',
+				COUNT(project_id) AS 'total_projects'
+			FROM project_sdg
+				INNER JOIN sdg ON project_sdg.sdg_id = sdg.id
+			GROUP BY sdg.id;
+		END;
+
+		$em = $this->getEntityManager();
+		$statement = $em->getConnection()->prepare($sql);
+		return $statement->executeQuery()->fetchAllAssociative();
 	}
 }

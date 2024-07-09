@@ -47,11 +47,14 @@ class AddMediasController implements RequestHandlerInterface
 			}
 
 			$medias = $request->getUploadedFiles();
+			$errors = [];
 
 			foreach ($medias as $media) {
 				/** @var UploadedFileInterface $media */
 				if ($media->getError() !== UPLOAD_ERR_OK) {
-					return new Response(500, body: json_encode(['error' => 'Ocorreu um erro ao tentar realizar o upload das imagens!']));
+//					return new Response(500, body: json_encode(['error' => 'Ocorreu um erro ao tentar realizar o upload das imagens!']));
+					$errors[] = $media->getClientFilename();
+					continue;
 				}
 
 				$finfo = new \finfo(FILEINFO_MIME);
@@ -77,11 +80,15 @@ class AddMediasController implements RequestHandlerInterface
 				$this->mediaRepository->add($dto);
 			}
 
-			return new Response(201);
+			if (!$errors) {
+				return new Response(201);
+			}
+			$errorMessage = "Não foi possível fazer o upload dos seguintes arquivos:\n" . implode("\n", $errors);
+			return new Response(202, body: json_encode(['error' => $errorMessage]));
 		} catch (DomainException $e) {
 			return new Response(400, body: json_encode(['error' => $e->getMessage()]));
 		} catch (ORMException $e) {
-			return new Response(500, body: json_encode(['error' => $e->getMessage()]));
+			return new Response(500, body: json_encode(['error' => $e->getMessage() . PHP_EOL . $e->getTraceAsString()]));
 		}
 	}
 }

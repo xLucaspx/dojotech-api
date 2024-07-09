@@ -133,7 +133,7 @@ Para executar o _front-end_, abra o projeto no VS Code e navegue até a pasta **
 - [ ] Deve ser possível adicionar um vídeo de até 2min de duração por projeto;
 - [x] Deve ser possível visualizar a quantidade total de projetos;
 - [x] Deve ser possível visualizar a quantidade de projetos por ODS;
-- [ ] Deve ser possível gerar um relatório de sustentabilidade contendo o total de projetos e o total de projetos por ODS.
+- [x] Deve ser possível gerar um relatório de sustentabilidade contendo o total de projetos e o total de projetos por ODS.
 
 ### Não funcionais
 
