@@ -210,7 +210,7 @@ Diagrama ER (Entidade-Relacionamento) do banco de dados
 
 ---
 
-![Modelo relacional do banco de dados](./outros/img/relacional.png)
+![Modelo relacional do banco de dados](./outros/img/relacional.jpg)
 
 Modelo relacional do banco de dados
 
