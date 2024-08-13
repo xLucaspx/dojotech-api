@@ -222,25 +222,25 @@ Guia de Cores ODS
 
 ---
 
-![_Layout_ base da página inicial](./outros/img/new-home.png)
+![_Layout_ base da página inicial](./outros/img/home.jpg)
 
 _Layout_ base da página inicial
 
 ---
 
-![_Layout_ base da página de _login_](./outros/img/login.png)
+![_Layout_ base da página de _login_](./outros/img/login.jpg)
 
 _Layout_ base da página de _login_
 
 ---
 
-![_Layout_ base da página "Conheça nossos projetos"](./outros/img/projetos.png)
+![_Layout_ base da página "Conheça nossos projetos"](./outros/img/projetos.jpg)
 
 _Layout_ base da página "Conheça nossos projetos"
 
 ---
 
-![_Layout_ base da página de projeto](./outros/img/pag_projeto.png)
+![_Layout_ base da página de projeto](./outros/img/pag_projeto.jpg)
 
 _Layout_ base da página de projeto
 
