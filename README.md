@@ -19,7 +19,7 @@
 
 ## Produto
 
-_Website_ para registro e mapeamento dos projetos sociais inspirados nos Objetivos de Desenvolvimento Sustentável da ONU.
+_Website_ para registro e mapeamento de projetos sociais no estado do Rio Grande do Sul, inspirados nos Objetivos de Desenvolvimento Sustentável da ONU e no projeto Dojotech.
 
 ## Objetivo (meta)
 
@@ -39,11 +39,14 @@ Por fim, é recomendado que a _IDE_ utilizada para rodar o _front-end_ do projet
 
 ### Configurando o ambiente
 
-Após clonar o projeto, siga as instruções abaixo para configurar o ambiente e rodar o projeto corretamente.
+O _back-end_ do projeto encontra-se no repositório [**dojotech-api**](https://github.com/xlucaspx/dojotech-api).
+O _front-end_ do projeto encontra-se no repositório [**dojotech_somar**](https://github.com/xlucaspx/dojotech_somar).
+
+Após clonar ambos repositórios, siga as instruções abaixo para configurar o ambiente e rodar o projeto corretamente.
 
 #### Variáveis de ambiente
 
-Visando tornar o projeto mais seguro e sua configuração mais simples, são utilizadas **variáveis de ambiente** para guardar informações sensíveis. Para configurar as variáveis de ambiente com [**phpdotenv**](https://github.com/vlucas/phpdotenv), é preciso criar um arquivo chamado `.env` na pasta raiz do projeto com as chaves e valores que se deseja guardar; no arquivo **exemplo.env**, as chaves já estão disponíveis, você pode apenas renomear o arquivo para `.env` e preencher com os devidos valores.
+Visando tornar o projeto mais seguro e sua configuração mais simples, são utilizadas **variáveis de ambiente** para guardar informações sensíveis. Para configurar as variáveis de ambiente com [**phpdotenv**](https://github.com/vlucas/phpdotenv), é preciso criar um arquivo chamado `.env` na pasta raiz do _back-end_ do projeto com as chaves e valores que se deseja guardar; no arquivo **exemplo.env**, as chaves já estão disponíveis, você pode apenas renomear o arquivo para `.env` e preencher com os devidos valores.
 
 Seu arquivo `.env` deverá se parecer com:
 
@@ -72,7 +75,7 @@ Após instalar a extensão, deve aparecer um botão no canto inferior direito do
 
 #### PHP
 
-Navegue até a pasta raiz do projeto pelo terminal. Execute comando `composer install` para instalar as [dependências](#dependências) do projeto. Quando a instalação for concluída, será necessário executar as _migrations_ para criar as tabelas do banco e popular alguns dados; para isso, é necessário executar o script `doctrine-migrations` dentro da pasta **vendor/bin** com o comando `migrations:migrate`:
+Navegue até a pasta raiz do _back-end_ do projeto pelo terminal. Execute comando `composer install` para instalar as [dependências](#dependências) do projeto. Quando a instalação for concluída, será necessário executar as _migrations_ para criar as tabelas do banco e popular alguns dados; para isso, é necessário executar o script `doctrine-migrations` dentro da pasta **vendor/bin** com o comando `migrations:migrate`:
 
 ```bash
 .\vendor\bin\doctrine-migrations migrations:migrate
@@ -99,7 +102,7 @@ Pacotes do PHP necessários para executar o projeto; estão disponíveis também
 
 ### Executando
 
-Para rodar o servidor no _back-end_ do projeto, ainda no terminal e na pasta raiz do projeto, execute o comando:
+Para rodar o servidor no _back-end_ do projeto, ainda no terminal e na pasta raiz, execute o comando:
 
 ```
 php -S localhost:3000 -t public/
@@ -107,7 +110,9 @@ php -S localhost:3000 -t public/
 
 A porta utilizada é a **3000** e apenas a pasta _public_ e seu conteúdo são visíveis para o navegador.
 
-Para executar o _front-end_, abra o projeto no VS Code e navegue até a pasta **public/views**; abra o arquivo **index.html** e clique no botão "_Go Live_" do Live Server. Isto executará o projeto no seu navegador padrão. A porta utilizada por padrão é a **5500**.
+Para executar o _front-end_, abra o projeto no VS Code e navegue até a pasta **public/views**; abra o arquivo **index.html** e clique no botão "_Go Live_" do Live Server. Isto executará o projeto e permitirá que seja acessado no navegador; a porta utilizada por padrão é a **5500**.
+
+Ápós seguir estes passos, o projeto deve estar funcionando corretamente em <http://127.0.0.1:5501/public/views>.
 
 ## Requisitos
 
@@ -240,3 +245,4 @@ _Layout_ base da página "Conheça nossos projetos"
 _Layout_ base da página de projeto
 
 ---
+
