@@ -112,7 +112,7 @@ A porta utilizada é a **3000** e apenas a pasta _public_ e seu conteúdo são v
 
 Para executar o _front-end_, abra o projeto no VS Code e navegue até a pasta **public/views**; abra o arquivo **index.html** e clique no botão "_Go Live_" do Live Server. Isto executará o projeto e permitirá que seja acessado no navegador; a porta utilizada por padrão é a **5500**.
 
-Ápós seguir estes passos, o projeto deve estar funcionando corretamente em <http://127.0.0.1:5501/public/views>.
+Após seguir estes passos, o projeto deve estar funcionando corretamente em <http://127.0.0.1:5501/public/views>.
 
 ## Requisitos
 
