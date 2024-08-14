@@ -4,8 +4,7 @@ namespace Xlucaspx\Dojotech\Api\Controller\User;
 
 use DomainException;
 use Nyholm\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Entity\User\Address\AddressDto;
 use Xlucaspx\Dojotech\Api\Entity\User\UpdateUserDto;

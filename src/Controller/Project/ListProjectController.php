@@ -3,8 +3,7 @@
 namespace Xlucaspx\Dojotech\Api\Controller\Project;
 
 use Nyholm\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
 
@@ -28,12 +27,6 @@ class ListProjectController implements RequestHandlerInterface
 		}
 
 		$projectList = $this->repository->filterBy($filter);
-//		$projectList = $this->repository->findBy($filter);
-//		$dtoList = array_map(
-//			fn(Project $project) => new ListProjectDto($project),
-//			$projectList
-//		);
-
 		return new Response(200, body: json_encode($projectList));
 	}
 }

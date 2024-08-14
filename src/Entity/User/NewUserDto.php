@@ -3,9 +3,7 @@
 namespace Xlucaspx\Dojotech\Api\Entity\User;
 
 use Xlucaspx\Dojotech\Api\Entity\User\Address\AddressDto;
-use Xlucaspx\Dojotech\Api\Entity\User\DataTypes\Email;
-use Xlucaspx\Dojotech\Api\Entity\User\DataTypes\Phone;
-use Xlucaspx\Dojotech\Api\Entity\User\DataTypes\Username;
+use Xlucaspx\Dojotech\Api\Entity\User\DataTypes\{Email, Phone, Username};
 
 class NewUserDto
 {

@@ -4,8 +4,7 @@ namespace Xlucaspx\Dojotech\Api\Controller\Project;
 
 use Exception;
 use Nyholm\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Entity\Project\Media;
 use Xlucaspx\Dojotech\Api\Repository\MediaRepository;

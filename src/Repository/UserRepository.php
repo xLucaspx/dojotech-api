@@ -3,9 +3,7 @@
 namespace Xlucaspx\Dojotech\Api\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Xlucaspx\Dojotech\Api\Entity\User\NewUserDto;
-use Xlucaspx\Dojotech\Api\Entity\User\UpdateUserDto;
-use Xlucaspx\Dojotech\Api\Entity\User\User;
+use Xlucaspx\Dojotech\Api\Entity\User\{NewUserDto, UpdateUserDto, User};
 use Xlucaspx\Dojotech\Api\Exception\DuplicateKeyException;
 
 class UserRepository extends EntityRepository

@@ -3,19 +3,16 @@
 namespace Xlucaspx\Dojotech\Api\Controller\Project;
 
 use Nyholm\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
-use Xlucaspx\Dojotech\Api\Repository\MediaRepository;
-use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
+use Xlucaspx\Dojotech\Api\Repository\{ProjectRepository};
 use Xlucaspx\Dojotech\Api\Utils\JsonWebToken;
 
 class DeleteProjectController implements RequestHandlerInterface
 {
 	public function __construct(
-		private ProjectRepository $projectRepository,
-		private MediaRepository $mediaRepository
+		private ProjectRepository $projectRepository
 	) {}
 
 	public function handle(ServerRequestInterface $request): ResponseInterface

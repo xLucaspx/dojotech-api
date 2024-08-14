@@ -2,8 +2,7 @@
 
 use DI\ContainerBuilder;
 use Doctrine\ORM\EntityManager;
-use Xlucaspx\Dojotech\Api\Entity\Project\Media;
-use Xlucaspx\Dojotech\Api\Entity\Project\Project;
+use Xlucaspx\Dojotech\Api\Entity\Project\{Media, Project};
 use Xlucaspx\Dojotech\Api\Entity\Sdg\Sdg;
 use Xlucaspx\Dojotech\Api\Entity\User\User;
 use Xlucaspx\Dojotech\Api\Helper\EntityManagerCreator;

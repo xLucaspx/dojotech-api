@@ -2,14 +2,8 @@
 
 namespace Xlucaspx\Dojotech\Api\Entity\Sdg;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\ManyToMany;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\Common\Collections\{ArrayCollection, Collection};
+use Doctrine\ORM\Mapping\{Column, Entity, GeneratedValue, Id, ManyToMany, Table};
 use Xlucaspx\Dojotech\Api\Entity\Project\Project;
 use Xlucaspx\Dojotech\Api\Repository\SdgRepository;
 

@@ -4,8 +4,7 @@ namespace Xlucaspx\Dojotech\Api\Utils;
 
 use DateInterval;
 use DateTimeImmutable;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+use Firebase\JWT\{JWT, Key};
 
 class JsonWebToken
 {
@@ -29,21 +28,6 @@ class JsonWebToken
 
 	public static function decode(string $token): array
 	{
-		/*
-		if (!token){
-			return false;
-		}
-
-		try {
-			token = token.replace(/bearer\s?/gi, "");
-
-    	if (token.length === 0) return false;
-
-    	return jwt.verify(token, process.env.TOKEN_SECRET);
-  	} catch (error) {
-			throw new UnauthorizedError("Token de autorização inválido!");
-		}
-		*/
 		$token = preg_replace('/^bearer\s/i', '', $token);
 		return (array)JWT::decode($token, new Key($_ENV['TOKEN_SECRET'], 'HS256'));
 	}

@@ -3,8 +3,7 @@
 namespace Xlucaspx\Dojotech\Api\Controller\Project;
 
 use Nyholm\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
 use Xlucaspx\Dojotech\Api\Utils\Report;

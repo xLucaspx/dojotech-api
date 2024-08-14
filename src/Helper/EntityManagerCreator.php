@@ -4,11 +4,9 @@ namespace Xlucaspx\Dojotech\Api\Helper;
 
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Logging\Middleware;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\ORMSetup;
+use Doctrine\ORM\{EntityManager, ORMSetup};
 use Symfony\Component\Console\Logger\ConsoleLogger;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Output\{ConsoleOutput, OutputInterface};
 
 class EntityManagerCreator
 {

@@ -3,11 +3,9 @@
 namespace Xlucaspx\Dojotech\Api\Controller\Sdg;
 
 use Nyholm\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\RequestHandlerInterface;
-use Xlucaspx\Dojotech\Api\Entity\Sdg\Sdg;
-use Xlucaspx\Dojotech\Api\Entity\Sdg\SdgDetailsDto;
+use Xlucaspx\Dojotech\Api\Entity\Sdg\{Sdg, SdgDetailsDto};
 use Xlucaspx\Dojotech\Api\Repository\SdgRepository;
 
 class ListSdgController implements RequestHandlerInterface

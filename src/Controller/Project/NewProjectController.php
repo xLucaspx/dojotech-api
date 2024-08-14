@@ -5,21 +5,16 @@ namespace Xlucaspx\Dojotech\Api\Controller\Project;
 use Doctrine\ORM\Exception\ORMException;
 use DomainException;
 use Nyholm\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Xlucaspx\Dojotech\Api\Entity\Project\NewProjectDto;
 use Xlucaspx\Dojotech\Api\Repository\ProjectRepository;
-use Xlucaspx\Dojotech\Api\Repository\SdgRepository;
-use Xlucaspx\Dojotech\Api\Repository\UserRepository;
 use Xlucaspx\Dojotech\Api\Utils\JsonWebToken;
 
 class NewProjectController implements RequestHandlerInterface
 {
 	public function __construct(
-		private ProjectRepository $projectRepository,
-		private UserRepository $userRepository,
-		private SdgRepository $sdgRepository
+		private ProjectRepository $projectRepository
 	) {}
 
 	public function handle(ServerRequestInterface $request): ResponseInterface
@@ -42,8 +37,6 @@ class NewProjectController implements RequestHandlerInterface
 			if ($userId !== $requestId) {
 				return new Response(401, body: json_encode(['error' => 'Não é possível cadastrar projetos para outros usuários!']));
 			}
-
-//			$user = $this->userRepository->find($userId);
 
 			$name = filter_var($project['name']);
 			$cause = filter_var($project['cause']);

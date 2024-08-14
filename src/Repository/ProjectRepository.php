@@ -4,11 +4,7 @@ namespace Xlucaspx\Dojotech\Api\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use DomainException;
-use Xlucaspx\Dojotech\Api\Entity\Project\ListProjectDto;
-use Xlucaspx\Dojotech\Api\Entity\Project\NewProjectDto;
-use Xlucaspx\Dojotech\Api\Entity\Project\Project;
-use Xlucaspx\Dojotech\Api\Entity\Project\ProjectDetailsDto;
-use Xlucaspx\Dojotech\Api\Entity\Project\UpdateProjectDto;
+use Xlucaspx\Dojotech\Api\Entity\Project\{ListProjectDto, NewProjectDto, Project, ProjectDetailsDto, UpdateProjectDto};
 use Xlucaspx\Dojotech\Api\Entity\Sdg\Sdg;
 use Xlucaspx\Dojotech\Api\Entity\User\User;
 

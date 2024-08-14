@@ -2,8 +2,7 @@
 
 declare(strict_types=1);
 
-use Firebase\JWT\ExpiredException;
-use Firebase\JWT\SignatureInvalidException;
+use Firebase\JWT\{ExpiredException, SignatureInvalidException};
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7\Response;
 use Nyholm\Psr7Server\ServerRequestCreator;
@@ -35,7 +34,7 @@ $creator = new ServerRequestCreator(
 );
 $request = $creator->fromGlobals();
 
-$publicRoutes = ['GET|/sdg', 'GET|/project', 'GET|/project/details', 'GET|/project/report', 'POST|/user', 'POST|/login'];
+$publicRoutes = ['GET|/sdg', 'GET|/project', 'GET|/project/details', 'POST|/user', 'POST|/login'];
 // if accessing private routes the Authorization header is required
 if (!in_array($key, $publicRoutes)) {
 	if (!$request->hasHeader('Authorization')) {

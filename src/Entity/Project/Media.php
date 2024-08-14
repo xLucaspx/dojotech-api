@@ -2,13 +2,7 @@
 
 namespace Xlucaspx\Dojotech\Api\Entity\Project;
 
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\{Column, Entity, GeneratedValue, Id, JoinColumn, ManyToOne, Table};
 use Xlucaspx\Dojotech\Api\Repository\MediaRepository;
 
 #[Entity(repositoryClass: MediaRepository::class), Table(name: 'media')]

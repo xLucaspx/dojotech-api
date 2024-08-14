@@ -4,9 +4,7 @@ namespace Xlucaspx\Dojotech\Api\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use DomainException;
-use Xlucaspx\Dojotech\Api\Entity\Project\Media;
-use Xlucaspx\Dojotech\Api\Entity\Project\NewMediaDto;
-use Xlucaspx\Dojotech\Api\Entity\Project\Project;
+use Xlucaspx\Dojotech\Api\Entity\Project\{Media, NewMediaDto, Project};
 
 class MediaRepository extends EntityRepository
 {

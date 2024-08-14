@@ -2,8 +2,7 @@
 
 namespace Xlucaspx\Dojotech\Api\Entity\Project;
 
-use Xlucaspx\Dojotech\Api\Entity\Sdg\Sdg;
-use Xlucaspx\Dojotech\Api\Entity\Sdg\SdgDetailsDto;
+use Xlucaspx\Dojotech\Api\Entity\Sdg\{Sdg, SdgDetailsDto};
 
 class ProjectDetailsDto
 {
