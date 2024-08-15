@@ -135,7 +135,7 @@ Após seguir estes passos, o projeto deve estar funcionando corretamente em <htt
 	- [x] por causa de atuação;
 	- [x] por público-alvo.
 - [x] Deve ser possível adicionar até 5 imagens por projeto;
-- [ ] Deve ser possível adicionar um vídeo de até 2min de duração por projeto;
+- [x] Deve ser possível adicionar um vídeo por projeto;
 - [x] Deve ser possível visualizar a quantidade total de projetos;
 - [x] Deve ser possível visualizar a quantidade de projetos por ODS;
 - [x] Deve ser possível gerar um relatório de sustentabilidade contendo o total de projetos e o total de projetos por ODS.
@@ -152,7 +152,7 @@ Após seguir estes passos, o projeto deve estar funcionando corretamente em <htt
 - [x] Utilizar token para realizar autenticação de usuário, evitando tráfego de dados sensíveis;
 - [x] Utilizar expressões regulares para escapar possíveis entradas maliciosas do usuário;
 - [ ] Deve ser possível adicionar textos descritivos para as imagens;
-- [ ] Validar e limitar tamanho máximo de _upload_ de mídias do projeto.
+- [x] Validar e limitar tamanho máximo de _upload_ de mídias do projeto em 15 MB.
 
 ## Tarefas
 
@@ -170,7 +170,7 @@ Após seguir estes passos, o projeto deve estar funcionando corretamente em <htt
 - [x] Desenvolver funcionalidades:
 	- [x] _Login_ e autenticação;
 	- [x] _Upload_ de imagens;
-	- [ ] _Upload_ de vídeo;
+	- [x] _Upload_ de vídeo;
 	- [x] Filtragem de projetos;
 	- [x] Contabilização de projetos;
 	- [x] Página de administração de dados do usuário;
