@@ -78,7 +78,7 @@ Após instalar a extensão, deve aparecer um botão no canto inferior direito do
 Navegue até a pasta raiz do _back-end_ do projeto pelo terminal. Execute comando `composer install` para instalar as [dependências](#dependências) do projeto. Quando a instalação for concluída, será necessário executar as _migrations_ para criar as tabelas do banco e popular alguns dados; para isso, é necessário executar o script `doctrine-migrations` dentro da pasta **vendor/bin** com o comando `migrations:migrate`:
 
 ```bash
-.\vendor\bin\doctrine-migrations migrations:migrate
+./vendor/bin/doctrine-migrations migrations:migrate
 ```
 
 Agora você já deve ter todas as tabelas do projeto criadas no seu banco, com os dados necessários já inseridos.
@@ -118,7 +118,7 @@ php -S localhost:5500 -t public/
 
 **Atenção**: A _flag_ `-t public/` é necessária para permitir que os servidores tenham acesso apenas à pasta _public_ e seu conteúdo; também garante que os arquivos sejam encontrados nos locais corretos. 
 
-Após seguir estes passos, o projeto deve estar funcionando corretamente em <http://127.0.0.1:5501/public/views>.
+Após seguir estes passos, o projeto deve estar funcionando corretamente em <http://127.0.0.1:5500/public/views>.
 
 ## Requisitos
 
