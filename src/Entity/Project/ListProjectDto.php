@@ -24,7 +24,7 @@ class ListProjectDto
 
 		$images = $project->medias()->filter(fn(Media $media) => preg_match('/^image\/\w+$/', $media->type));
 		/** @var Media|null $coverImage */
-		$coverImage = $images->get(0);
+		$coverImage = $images->first();
 		$coverImageUrl = $coverImage ? "{$this->id}/{$coverImage->url}" : 'no-media.webp';
 
 		$this->coverImageUrl = "/img/project/{$coverImageUrl}";

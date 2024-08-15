@@ -110,7 +110,13 @@ php -S localhost:3000 -t public/
 
 A porta utilizada é a **3000** e apenas a pasta _public_ e seu conteúdo são visíveis para o navegador.
 
-Para executar o _front-end_, abra o projeto no VS Code e navegue até a pasta **public/views**; abra o arquivo **index.html** e clique no botão "_Go Live_" do Live Server. Isto executará o projeto e permitirá que seja acessado no navegador; a porta utilizada por padrão é a **5500**.
+Para executar o _front-end_, abra **apenas a pasta _public_** no VS Code e clique no botão "_Go Live_" do Live Server. Isto executará o projeto e permitirá que seja acessado no navegador; a porta utilizada por padrão é a **5500**. Também é possível subir o _front-end_ do projeto em um servidor PHP; basta acessar a **pasta raíz** do _front-end_ e subir o servidor na porta de sua escolha. E.g.:
+
+```
+php -S localhost:5500 -t public/
+```
+
+**Atenção**: A _flag_ `-t public/` é necessária para permitir que os servidores tenham acesso apenas à pasta _public_ e seu conteúdo; também garante que os arquivos sejam encontrados nos locais corretos. 
 
 Após seguir estes passos, o projeto deve estar funcionando corretamente em <http://127.0.0.1:5501/public/views>.
 
