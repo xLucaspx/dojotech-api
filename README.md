@@ -1,5 +1,7 @@
 # Projeto Integrador - Documentação
 
+[API anterior do projeto, utilizando Node.js [deprecated]](https://github.com/xLucaspx/dojotech_somar/tree/nodejs-api).
+
 ## Índice
 
 - [Produto](#produto)
